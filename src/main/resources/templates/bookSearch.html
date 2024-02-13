@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/common.css">
+    <title>Book app Spring</title>
+</head>
+<body>
+<div id="logo">
+    <h1>Search</h1>
+</div>
+<div th:replace="~{/fragments.html :: menu}"></div>
+    <form method="post">
+        <input type="text" placeholder="Search" name="searchingPhrase">
+        <input type="submit" class="button" value="Search">
+    </form>
+    <div id="content">
+        <div class="book" th:each="book : ${searchBooks}">
+            <div th:text="${book.title}" />
+            <div th:text="${book.author}" />
+            <div th:text="${book.isbn}" />
+            <a th:if="${isLogged} and ${!book.rentStatus}" th:href="@{/rent/{id}(id=${book.id})}">Rent</a>
+        </div>
+    </div>
+</body>
+</html>

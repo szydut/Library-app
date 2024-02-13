@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+    <div id="logo" th:fragment="logo">
+        <p class="logo-main">LOGO</p>
+    </div>
+    <div id="menu" th:fragment="menu">
+        <a href="/home" class="btn-primary">Home page</a>
+        <a href="/contact" class="btn-primary">Contact</a>
+        <a href="/bookSearch" class="btn-primary">Search</a>
+        <a href="/addNewBook" class="btn-primary" th:if="${isLogged}">Add a book</a>
+        <a href="/login" class="btn-primary" th:if="${!isLogged}">Login</a>
+        <a href="/logout" class="btn-primary" th:if="${isLogged}">Logout</a>
+        <a href="/account" class="btn-primary" th:if="${isLogged}">Account</a>
+<!--        <a href="/listBooks">List of books</a>-->
+<!--        <a href="/addBook">Add book</a>-->
+<!--        <a href="/search">Search</a>-->
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book store</title>
+    <link rel="stylesheet" type="text/css" href="/common.css">
+</head>
+<body>
+    <div th:replace="~{fragments.html :: logo}"></div>
+    <div th:replace="~{fragments.html :: menu}"></div>
+    <div class="books">
+        <h3>KSIĄŻKI</h3>
+        <table>
+            <thead>
+            <tr>
+                <td>Tytył</td><td>Autor</td><td>ISBM</td><td>Data Wynajmu</td><td>Przewidywana data zwrotu</td><td th:if="${isLogged and !isAdmin}">Wypożycz</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${books}" class="book">
+                <td th:text="${book.title}" class="title"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.isbn}"></td>
+                <td th:if="${isLogged}"><a th:if="${isLogged} and ${!book.rentStatus}" th:href="@{/account/return/{id}(id=${book.id})}">Return</a></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

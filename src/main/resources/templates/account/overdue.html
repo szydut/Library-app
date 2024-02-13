@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Books overdue</title>
+    <link rel="stylesheet" href="/common.css">
+</head>
+<body>
+    <div th:replace="~{fragments.html :: logo}"></div>
+    <div th:replace="~{fragments.html :: menu}"></div>
+    <div id="content">
+        <div class="book" th:each="element : ${bookOverdue}">
+            <div th:text="${element.book.title}" />
+            <div th:text="${element.book.author}" />
+            <div th:text="${element.book.isbn}" />
+            <div th:text="${element.startRentDate}" />
+            <div th:text="${element.endRentDate}" />
+            <div th:text="${element.returnBookDate}" />
+            <div th:text="${element.user.name}" />
+            <div th:text="${element.user.surname}" />
+        </div>
+    </div>
+</body>
+</html>
