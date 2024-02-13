@@ -36,8 +36,8 @@ public class UserService implements IUserService {
     @Override
     public void setUp() {
         List<User> users = new ArrayList<>();
-        users.add(new User("admin", DigestUtils.md5Hex("admin123")));
-        users.add(new User("janusz", DigestUtils.md5Hex("janusz123")));
+        users.add(new User("admin", DigestUtils.md5Hex("admin123"), "admin","admin" ));
+        users.add(new User("janusz", DigestUtils.md5Hex("janusz123"), "janusz", "kowalski"));
 
         for(User user : users){
             this.userDAO.persist(user);
@@ -50,10 +50,6 @@ public class UserService implements IUserService {
         books.add(new Book(6, false, "Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides", "Design Patterns: Elements of Reusable Object-Oriented Software", "978-0201633610"));
         books.add(new Book(7, false, "Charles Petzold", "Code: The Hidden Language of Computer Hardware and Software", "978-0735611313"));
         books.add(new Book(8, false, "Yuval Noah Harari", "Sapiens: A Brief History of Humankind", "978-0062316110"));
-
-
-        users.add(new User("admin", DigestUtils.md5Hex("admin123")));
-        users.add(new User("janusz", DigestUtils.md5Hex("janusz123")));
 
         for(Book book : books){
             this.bookDAO.persist(book);
