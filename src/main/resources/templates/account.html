@@ -6,35 +6,34 @@
     <link rel="stylesheet" href="/common.css">
 </head>
 <body>
-    <div th:replace="~{fragments.html :: logo}"></div>
     <div th:replace="~{fragments.html :: menu}"></div>
     <div id="content">
         <div th:replace="~{fragments.html :: menu_2}"></div>
-        <div class="books">
-            <h3>List of Rented Books</h3>
-            <table>
+        <div class="book-container">
+            <h3 class="book-header">List of Rented Books</h3>
+            <table class="book-table">
                 <thead>
-                <tr>
-                    <td>Title</td>
-                    <td>Author</td>
-                    <td>ISBN</td>
-                    <td>Start Rent Date</td>
-                    <td>End Rent Date</td>
-                    <td>Return Book Date</td>
-                    <td>User Name</td>
-                    <td>User Surname</td>
+                <tr class="table-header-row">
+                    <th class="table-header">Title</th>
+                    <th class="table-header">Author</th>
+                    <th class="table-header">ISBN</th>
+                    <th class="table-header">Start Rent Date</th>
+                    <th class="table-header">End Rent Date</th>
+                    <th class="table-header">Return Book Date</th>
+                    <th class="table-header">User Name</th>
+                    <th class="table-header">User Surname</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="element : ${listRentedBooks}" class="book">
-                    <td th:text="${element.book.title}" class="title"></td>
-                    <td th:text="${element.book.author}"></td>
-                    <td th:text="${element.book.isbn}"></td>
-                    <td th:text="${element.startRentDate}"></td>
-                    <td th:text="${element.endRentDate}"></td>
-                    <td th:text="${element.returnBookDate}"></td>
-                    <td th:text="${element.user.name}"></td>
-                    <td th:text="${element.user.surname}"></td>
+                <tr th:each="element : ${listRentedBooks}" class="book-row">
+                    <td th:text="${element.book.title}" class="book-title"></td>
+                    <td th:text="${element.book.author}" class="book-author"></td>
+                    <td th:text="${element.book.isbn}" class="book-isbn"></td>
+                    <td th:text="${element.startRentDate}" class="book-start-date"></td>
+                    <td th:text="${element.endRentDate}" class="book-end-date"></td>
+                    <td th:text="${element.returnBookDate}" class="book-return-date"></td>
+                    <td th:text="${element.user.name}" class="book-user-name"></td>
+                    <td th:text="${element.user.surname}" class="book-user-surname"></td>
                 </tr>
                 </tbody>
             </table>

@@ -6,10 +6,8 @@
     <link rel="stylesheet" href="/common.css">
 </head>
 <body>
-    <div id="logo" th:fragment="logo">
-        <p class="logo-main">LOGO</p>
-    </div>
     <div id="menu" th:fragment="menu">
+        <p class="logo-main">LOGO</p>
         <a href="/home" class="btn-primary">Home page</a>
         <a href="/contact" class="btn-primary">Contact</a>
         <a href="/bookSearch" class="btn-primary">Search</a>
@@ -19,26 +17,33 @@
         <a href="/account" class="btn-primary" th:if="${isLogged}">Account</a>
     </div>
     <div class="books" th:fragment="listBooks">
-        <h3>List of books</h3>
-        <table>
-            <thead>
-                <tr>
-                    <td>Title</td><td>Author</td><td>ISBN</td><td th:if="${isLogged}">Rent a Book</td>
+        <div class="book-container" th:fragment="listBooks">
+            <h3 class="book-header">List of Books</h3>
+            <table class="book-table">
+                <thead>
+                <tr class="table-header-row">
+                    <th class="table-header">Title</th>
+                    <th class="table-header">Author</th>
+                    <th class="table-header">ISBN</th>
+                    <th th:if="${isLogged}" class="table-header">Rent</th>
                 </tr>
-            </thead>
-            <tbody>
-            <tr th:each="book : ${listBooks}" class="book">
-                <td th:text="${book.title}" class="title"></td>
-                <td th:text="${book.author}"></td>
-                <td th:text="${book.isbn}"></td>
-                <td th:if="${isLogged}"><a th:if="${isLogged} and ${!book.rentStatus}" th:href="@{/rent/{id}(id=${book.id})}">Rent</a></td>
-            </tr>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                <tr th:each="book : ${listBooks}" class="book-row">
+                    <td th:text="${book.title}" class="book-title"></td>
+                    <td th:text="${book.author}" class="book-author"></td>
+                    <td th:text="${book.isbn}" class="book-isbn"></td>
+                    <td th:if="${isLogged}" class="book-actions">
+                        <a th:if="${!book.rentStatus}" th:href="@{/rent/{id}(id=${book.id})}" class="btn-primary">Rent</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
     <div id="menu_2" th:fragment="menu_2">
-        <a href="/account/overdue" class="button" th:if="${isLogged}">overdue</a>
-        <a href="/account/rented" class="button" th:if="${isLogged}">my rented books</a>
+        <a href="/account/overdue" class="btn-secondary" th:if="${isLogged}">overdue</a>
+        <a href="/account/rented" class="btn-secondary" th:if="${isLogged}">my rented books</a>
     </div>
 </body>
 </html>

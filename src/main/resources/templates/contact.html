@@ -6,13 +6,17 @@
     <link rel="stylesheet" href="/common.css">
 </head>
 <body>
-    <div th:replace="~{fragments.html :: logo}"></div>
     <div th:replace="~{fragments.html :: menu}"></div>
 
-    <div id="content">
-        Super księgarnia<br>
-        ul.Sloneczna 34/400<br>
-        Kraków 31-233
+    <div id="content-wrapper">
+        <h1>Contact Information</h1>
+        <address>
+            Super Księgarnia<br>
+            ul. Słoneczna 34/400<br>
+            Kraków 31-233<br>
+            Phone: <a href="tel:+123456789">+12 345 678 9</a><br>
+            Email: <a href="mailto:info@superksiegarnia.com">info@superksiegarnia.com</a>
+        </address>
     </div>
 </body>
 </html>

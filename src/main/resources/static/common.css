@@ -4,23 +4,18 @@ body {
     padding: 0;
 }
 
-.button {
-    font-size: 20px;
-    margin: 5px 25px;
-    text-decoration: none;
-    color: grey;
-    border: 2px solid black;
-    padding: 5px 10px;
-    display: inline-block;
-    cursor: pointer;
-    border-radius: 15px;
-    transition: border, color, background-color 0.5s;
+#menu {
+    text-align: center;
+    margin-top: 10px;
 }
 
-.button:hover {
-    border: 2px solid darkslategrey;
-    color: white;
-    background-color: darkslategrey;
+#menu_2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.books{
+    text-align: center;
 }
 
 .books .title {
@@ -33,40 +28,52 @@ body {
     text-align: left;
 }
 
-.books p {
-    margin: 0;
+.book-container {
+    margin: 30px;
+    align-items: center;
 }
 
-h3 {
+.book-header {
+    color: #333;
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
-table {
-    width: 100%;
+.book-table {
+    margin: 0 auto;
     border-collapse: collapse;
-    margin-top: 20px;
 }
 
-table, th, td {
-    border: 1px solid black;
+.table-header-row {
+    background-color: #f2f2f2;
 }
 
-th, td {
-    padding: 10px;
+.table-header, .book-title, .book-author, .book-isbn, .book-actions, .book-start-date, .book-end-date, .book-return-date, .book-user-name, .book-user-surname {
+    padding: 12px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-th {
-    background-color: grey;
-    color: black;
+.book-row:hover {
+    background-color: #f5f5f5;
 }
+
 .errorMessage{
     color:red;
 }
 .title{
     width: 33%;
 }
+
+label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
 form {
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,12 +94,13 @@ input {
     font-weight: bold;
     text-align: center;
     white-space: nowrap;
+    text-decoration: none;
     vertical-align: middle;
     cursor: pointer;
     user-select: none;
     background-color: #007bff; /* Button color */
     border: 1px solid #007bff; /* Border color */
-    border-radius: 5px;
+    border-radius: 10px;
     color: #fff; /* Text color */
     transition: background-color 0.3s ease;
 }
@@ -100,4 +108,55 @@ input {
 .btn-primary:hover {
     background-color: #0056b3; /* Hover state color */
     border: 1px solid #0056b3; /* Hover state border color */
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: #e0e0e0; /* Change this to your desired shade of gray */
+    border: 1px solid #6c757d; /* Change this to your desired shade of gray */
+    border-radius: 10px;
+    color: black; /* Text color */
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0; /* Hover state color */
+    border: 1px solid #6c757d; /* Hover state border color */
+}
+
+#content-wrapper {
+    text-align: center;
+    margin: 50px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    color: #333;
+}
+
+address {
+    font-style: normal;
+    margin-top: 10px;
+    color: #555;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
