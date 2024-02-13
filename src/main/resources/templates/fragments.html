@@ -22,9 +22,9 @@
         <h3>List of books</h3>
         <table>
             <thead>
-            <tr>
-                <td>Title</td><td>Author</td><td>ISBN</td><td th:if="${isLogged}">Rent a Book</td>
-            </tr>
+                <tr>
+                    <td>Title</td><td>Author</td><td>ISBN</td><td th:if="${isLogged}">Rent a Book</td>
+                </tr>
             </thead>
             <tbody>
             <tr th:each="book : ${listBooks}" class="book">

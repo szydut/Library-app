@@ -9,15 +9,35 @@
     <div th:replace="~{fragments.html :: logo}"></div>
     <div th:replace="~{fragments.html :: menu}"></div>
     <div id="content">
-        <div class="book" th:each="element : ${bookOverdue}">
-            <div th:text="${element.book.title}" />
-            <div th:text="${element.book.author}" />
-            <div th:text="${element.book.isbn}" />
-            <div th:text="${element.startRentDate}" />
-            <div th:text="${element.endRentDate}" />
-            <div th:text="${element.returnBookDate}" />
-            <div th:text="${element.user.name}" />
-            <div th:text="${element.user.surname}" />
+        <div th:replace="~{fragments.html :: menu_2}"></div>
+        <div class="books" th:fragment="bookOverdue">
+            <h3>Overdue Books</h3>
+            <table>
+                <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Author</td>
+                    <td>ISBN</td>
+                    <td>Start Rent Date</td>
+                    <td>End Rent Date</td>
+                    <td>Return Book Date</td>
+                    <td>User Name</td>
+                    <td>User Surname</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="element : ${bookOverdue}" class="book">
+                    <td th:text="${element.book.title}" class="title"></td>
+                    <td th:text="${element.book.author}"></td>
+                    <td th:text="${element.book.isbn}"></td>
+                    <td th:text="${element.startRentDate}"></td>
+                    <td th:text="${element.endRentDate}"></td>
+                    <td th:text="${element.returnBookDate}"></td>
+                    <td th:text="${element.user.name}"></td>
+                    <td th:text="${element.user.surname}"></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
