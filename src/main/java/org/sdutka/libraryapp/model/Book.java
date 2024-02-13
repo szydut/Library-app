@@ -1,9 +1,6 @@
 package org.sdutka.libraryapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -24,5 +21,12 @@ public class Book {
 
     public Book(int id) {
         this.id = id;
+    }
+
+    public Book(boolean rentStatus, String title, String author, String isbn) {
+        this.rentStatus = rentStatus;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
     }
 }

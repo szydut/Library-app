@@ -42,17 +42,5 @@ public class UserService implements IUserService {
         for(User user : users){
             this.userDAO.persist(user);
         }
-        List<Book> books = new ArrayList<>();
-        books.add(new Book(2, false, "Dave Thomas and Andy Hunt", "The Pragmatic Programmer: Your Journey to Mastery", "978-0-201-61622-4"));
-        books.add(new Book(3, true, "Brian Christian and Tom Griffiths", "Algorithms to Live By: The Computer Science of Human Decisions", "978-0-06-234739-8"));
-        books.add(new Book(4, true, "Gene Kim, Kevin Behr, and George Spafford", "The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win", "978-0-9885208384"));
-        books.add(new Book(5, true, "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein", "Introduction to Algorithms", "978-0262033848"));
-        books.add(new Book(6, false, "Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides", "Design Patterns: Elements of Reusable Object-Oriented Software", "978-0201633610"));
-        books.add(new Book(7, false, "Charles Petzold", "Code: The Hidden Language of Computer Hardware and Software", "978-0735611313"));
-        books.add(new Book(8, false, "Yuval Noah Harari", "Sapiens: A Brief History of Humankind", "978-0062316110"));
-
-        for(Book book : books){
-            this.bookDAO.persist(book);
-        }
     }
 }
