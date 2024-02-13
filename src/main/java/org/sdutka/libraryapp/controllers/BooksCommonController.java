@@ -26,7 +26,7 @@ public class BooksCommonController {
 
     @RequestMapping(path = {"/", "/home", "/index"}, method = RequestMethod.GET)
     public String main(Model model){
-        model.addAttribute("books", bookService.getAll());
+        model.addAttribute("listBooks", bookService.getAll());
         model.addAttribute("isLogged", this.sessionObject.isLogged());
         return "home";
     }
@@ -54,7 +54,7 @@ public class BooksCommonController {
 
     @RequestMapping(path = "/bookSearch", method = RequestMethod.GET)
     public String bookSearch(Model model){
-        model.addAttribute("books", bookService.getAll());
+        model.addAttribute("listBooks", bookService.getAll());
         model.addAttribute("searchingPhrase", "");
         model.addAttribute("isLogged", this.sessionObject.isLogged());
         return "bookSearch";
@@ -63,7 +63,7 @@ public class BooksCommonController {
     @RequestMapping(path = "/bookSearch", method = RequestMethod.POST)
     public String bookSearch(@RequestParam("searchingPhrase") String searchingPhrase, Model model){
         model.addAttribute("isLogged", this.sessionObject.isLogged());
-        model.addAttribute("searchBooks", bookService.getByPattern(searchingPhrase));
+        model.addAttribute("listBooks", bookService.getByPattern(searchingPhrase));
         return "bookSearch";
     }
 }

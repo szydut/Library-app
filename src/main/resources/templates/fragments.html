@@ -17,9 +17,28 @@
         <a href="/login" class="btn-primary" th:if="${!isLogged}">Login</a>
         <a href="/logout" class="btn-primary" th:if="${isLogged}">Logout</a>
         <a href="/account" class="btn-primary" th:if="${isLogged}">Account</a>
-<!--        <a href="/listBooks">List of books</a>-->
-<!--        <a href="/addBook">Add book</a>-->
-<!--        <a href="/search">Search</a>-->
+    </div>
+    <div class="books" th:fragment="listBooks">
+        <h3>List of books</h3>
+        <table>
+            <thead>
+            <tr>
+                <td>Title</td><td>Author</td><td>ISBN</td><td th:if="${isLogged}">Rent a Book</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="book : ${listBooks}" class="book">
+                <td th:text="${book.title}" class="title"></td>
+                <td th:text="${book.author}"></td>
+                <td th:text="${book.isbn}"></td>
+                <td th:if="${isLogged}"><a th:if="${isLogged} and ${!book.rentStatus}" th:href="@{/rent/{id}(id=${book.id})}">Rent</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="menu_2" th:fragment="menu_2">
+        <a href="/account/overdue" class="button" th:if="${isLogged}">overdue</a>
+        <a href="/account/rented" class="button" th:if="${isLogged}">my rented books</a>
     </div>
 </body>
 </html>

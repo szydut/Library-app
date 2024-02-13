@@ -4,24 +4,12 @@ body {
     padding: 0;
 }
 
-#logo, #menu {
-    text-align: center;
-    margin: 20px;
-    border-bottom: 4px solid darkslategrey;
-}
-#submenu, #content {
-    text-align: center;
-    margin: 20px;
-}
-h1 {
-    font-size: 36px;
-}
-
 .button {
     font-size: 20px;
     margin: 5px 25px;
     text-decoration: none;
     color: black;
+    background-color: black;
     border: 2px solid black;
     padding: 5px 10px;
     display: inline-block;
@@ -61,7 +49,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #ddd;
+    border: 1px solid black;
 }
 
 th, td {

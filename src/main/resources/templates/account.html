@@ -9,8 +9,7 @@
     <div th:replace="~{fragments.html :: logo}"></div>
     <div th:replace="~{fragments.html :: menu}"></div>
     <div id="content">
-        <a href="/account/overdue" class="button" th:if="${isLogged}">overdue</a>
-        <a href="/account/rented" class="button" th:if="${isLogged}">my rented books</a>
+        <div th:replace="~{fragments.html :: menu_2}"></div>
         <div class="book" th:each="element : ${listRentedBooks}">
             <div th:text="${element.book.title}" />
             <div th:text="${element.book.author}" />
